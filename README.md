@@ -1,6 +1,6 @@
 # Application de Gestion de Dépenses 💰
 
-Une Progressive Web App (PWA) moderne de gestion de dépenses personnelles, inspirée de Revolut et N26, développée avec Next.js 16, React 19, TypeScript et Tailwind CSS v4.
+Une application web moderne de gestion de dépenses personnelles, inspirée de Revolut et N26, développée avec Next.js 16, React 19, TypeScript et Tailwind CSS v4.
 
 ## 📋 Table des matières
 
@@ -87,14 +87,7 @@ Une Progressive Web App (PWA) moderne de gestion de dépenses personnelles, insp
 - ✅ Demandes de permission automatiques
 - ✅ Notifications contextuelles avec icônes
 - ✅ Gestion intelligente des cooldowns pour éviter le spam
-- ✅ Support des notifications dans le service worker
-
-### 9. PWA et mode hors ligne
-- ✅ Manifest PWA complet avec shortcuts
-- ✅ Service Worker pour cache et mode hors ligne
-- ✅ Installation sur mobile et desktop
-- ✅ Support des raccourcis d'application
-- ✅ Cache intelligent des ressources
+- ✅ Support des notifications via l'API Notifications du navigateur
 
 ---
 
@@ -148,7 +141,7 @@ Une Progressive Web App (PWA) moderne de gestion de dépenses personnelles, insp
 │   └── analytics.ts            # Calculs et analyses de données
 │
 └── public/
-    └── manifest.json           # Manifest PWA (à venir)
+  └── static/                 # Fichiers statiques et assets publics
 ```
 
 ---
@@ -221,8 +214,7 @@ Les notifications nécessitent votre autorisation lors de la première utilisati
 ### Priorité haute (Version complète du cahier des charges)
 - ✅ **Mode sombre** (dark mode) - Implémenté
 - ✅ **Notifications push** pour alertes de budget - Implémenté
-- ✅ **PWA manifest complet** pour installation sur mobile - Implémenté
-- ✅ **Mode hors ligne** avec synchronisation automatique - Implémenté
+- ✅ **Mode hors ligne (limité)** - Certaines fonctionnalités peuvent fonctionner hors ligne
 - ⏳ **Authentification utilisateur** (si besoin d'une version multi-utilisateurs)
 - ⏳ **Synchronisation cloud** avec Supabase ou autre base de données
 - ⏳ **Partage de budgets** entre utilisateurs
@@ -324,14 +316,11 @@ Toutes les fonctionnalités essentielles du MVP ont été implémentées :
 Les fonctionnalités prioritaires ont été ajoutées :
 - ✅ **Mode sombre** - Support complet avec thème système
 - ✅ **Notifications push** - Alertes automatiques pour les budgets (80% et 100%)
-- ✅ **PWA manifest complet** - Installation sur mobile et desktop avec shortcuts
-- ✅ **Mode hors ligne** - Service Worker avec cache intelligent
-- ✅ Architecture modulaire et extensible
-- ✅ Types TypeScript bien définis
-- ✅ Composants réutilisables
-- ✅ Séparation claire logique/présentation
-- ✅ Prêt pour intégration Supabase/Neon
-- ✅ Structure optimisée pour PWA
+ - ✅ Architecture modulaire et extensible
+ - ✅ Types TypeScript bien définis
+ - ✅ Composants réutilisables
+ - ✅ Séparation claire logique/présentation
+ - ✅ Prêt pour intégration Supabase/Neon
 
 ---
 

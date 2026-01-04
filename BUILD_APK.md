@@ -80,7 +80,7 @@ L'APK signé sera dans : `android/app/build/outputs/apk/release/app-release.apk`
 
 ## Notes importantes
 
-- L'application fonctionne hors ligne grâce au Service Worker
+- L'application s'exécute dans le navigateur. Le support d'installation native ou hors-ligne n'est pas activé.
 - Les données sont stockées localement (localStorage)
 - L'APK généré fonctionnera comme une application native Android
 - Pour tester, vous pouvez installer l'APK directement sur un appareil Android

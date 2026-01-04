@@ -9,11 +9,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { exportToCSV, getCategories, saveCategory, deleteCategory, resetCategories } from "@/lib/storage"
+import openPrintableExport from "@/lib/export-pdf"
+import downloadPDF from "@/lib/export-pdf-download"
 import { Download, Plus, Trash2, RefreshCw, Info, DollarSign } from "lucide-react"
 import { useEffect } from "react"
 import type { Category } from "@/lib/types"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { InstallPWAButton } from "@/components/install-pwa-button"
 import { useCurrency } from "@/hooks/use-currency"
 import { CURRENCIES, type Currency } from "@/lib/currency"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -98,22 +99,6 @@ export default function SettingsPage() {
           <h1 className="text-3xl font-bold">Réglages</h1>
           <p className="text-muted-foreground mt-1">Gérez les paramètres de l'application</p>
         </div>
-
-        {/* Application section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Application</CardTitle>
-            <CardDescription>Gérez les paramètres de l'application</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <h3 className="text-sm font-medium leading-none mb-2">Installation</h3>
-              <p className="text-sm text-muted-foreground mb-3">Installez l'application sur votre appareil pour une meilleure expérience</p>
-              <InstallPWAButton />
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Currency section */}
         <Card>
           <CardHeader>
@@ -164,9 +149,9 @@ export default function SettingsPage() {
         <Card>
           <CardHeader>
             <CardTitle>Exporter les données</CardTitle>
-            <CardDescription>Téléchargez vos dépenses au format CSV</CardDescription>
+            <CardDescription>Téléchargez vos données au format CSV</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex gap-2">
             <Button onClick={handleExport} className="gap-2">
               <Download className="h-4 w-4" />
               Exporter en CSV
@@ -310,9 +295,8 @@ export default function SettingsPage() {
               <strong>Chef de projet :</strong> <a href="https://github.com/dashboard"><strong>Artemis99</strong></a>
             </p>
             <p>
-              <strong>Développement :</strong> Artemis99 (Chef de projet) & scriptseinsei
+              <strong>Développement :</strong> <a href="https://github.com/hadydieye"><strong> Scriptseinsei</strong></a>
             </p>
-            <p>📱 Cette application fonctionne hors ligne et peut être installée sur votre appareil.</p>
             <p>
               💾 Vos données sont stockées localement dans votre navigateur et ne sont jamais envoyées à un serveur.
             </p>

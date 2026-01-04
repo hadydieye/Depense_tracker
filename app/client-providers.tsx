@@ -7,7 +7,7 @@
 
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation, DesktopSidebar } from "@/components/navigation"
-import { InstallPrompt } from "@/components/install-prompt"
+// Install prompt removed
 import { Toaster } from "sonner"
 import { Analytics } from "@vercel/analytics/next"
 import dynamic from 'next/dynamic'
@@ -20,29 +20,15 @@ function NotificationManager() {
 }
 
 export function ClientProviders({ children }: { children: React.ReactNode }) {
-  const RegisterServiceWorker = dynamic(
-    () => import('@/app/register-sw').then((mod) => {
-      const RegisterSW = () => {
-        useEffect(() => {
-          mod.register()
-        }, [])
-        return null
-      }
-      return RegisterSW
-    }),
-    { ssr: false }
-  )
+  // Background worker registration removed
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
       <DesktopSidebar />
       {children}
       <Navigation />
-      <InstallPrompt />
-      <Suspense fallback={null}>
-        <RegisterServiceWorker />
-        <NotificationManager />
-      </Suspense>
+      {/* Install-related components removed: install prompt and background worker */}
+      <NotificationManager />
       <Toaster position="top-center" richColors />
       <Analytics />
     </ThemeProvider>

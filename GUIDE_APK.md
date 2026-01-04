@@ -70,28 +70,9 @@ cd android
 # L'APK sera dans : android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
-## Méthode 2 : Utiliser PWA Builder (Alternative simple)
+## Alternatives
 
-Si Capacitor pose problème, vous pouvez utiliser PWA Builder :
-
-1. Aller sur : https://www.pwabuilder.com/
-2. Entrer l'URL de votre application déployée
-3. Cliquer sur "Build My PWA"
-4. Sélectionner "Android" et télécharger le package
-5. Suivre les instructions pour générer l'APK
-
-## Méthode 3 : Utiliser Bubblewrap (TWA - Trusted Web Activity)
-
-```bash
-# Installer Bubblewrap
-npm install -g @bubblewrap/cli
-
-# Initialiser
-bubblewrap init --manifest=https://votre-domaine.com/manifest.json
-
-# Build
-bubblewrap build
-```
+Si vous ne souhaitez pas utiliser Capacitor, il existe d'autres méthodes pour empaqueter une application web en APK (outils tiers et services). Référez-vous aux guides officiels Android pour les options disponibles.
 
 ## Configuration requise
 
@@ -171,7 +152,7 @@ Le Gradle wrapper est inclus dans le projet Android généré par Capacitor.
 ## Notes importantes
 
 - ⚠️ L'application doit être buildée en mode export statique (déjà configuré)
-- ⚠️ Le Service Worker fonctionnera dans l'APK
+- ⚠️ L'APK ne garantit pas de fonctionnalités d'installation native ou hors-ligne
 - ⚠️ Les données localStorage seront persistantes dans l'APK
 - ⚠️ Pour tester, installez l'APK directement sur un appareil Android
 
