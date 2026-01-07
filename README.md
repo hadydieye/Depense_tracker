@@ -148,14 +148,20 @@ Une application web moderne de gestion de dépenses personnelles, inspirée de R
 
 ## 🛠️ Installation et démarrage
 
-### Option 1 : Déploiement sur Vercel (recommandé)
-1. Cliquez sur le bouton "Publish" dans l'interface v0
-2. Suivez les instructions pour déployer sur Vercel
-3. Votre app sera accessible en ligne instantanément
+### Option 1 : Via le lien github
+1. Rendez vous sur le lien github https://github.com/hadydieye/Depense_tracker
+2. Appuyez sur le bouton code 
+3. Télechargez en format zip
 
 ### Option 2 : Installation locale
-1. Téléchargez le projet (bouton "Download ZIP" dans v0)
-2. Décompressez et ouvrez un terminal dans le dossier
+1. Télechargé via le terminal en tappant la commande 
+```bash
+git clone https://github.com/hadydieye/Depense_tracker
+```
+2. Rendez vous dans le dossier 
+```bash
+cd Depense-tracker
+```
 3. Installez les dépendances :
 ```bash
 npm install
