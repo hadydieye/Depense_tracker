@@ -160,7 +160,7 @@ git clone https://github.com/hadydieye/Depense_tracker
 ```
 2. Rendez vous dans le dossier 
 ```bash
-cd Depense-tracker
+cd Depense_tracker
 ```
 3. Installez les dépendances :
 ```bash
