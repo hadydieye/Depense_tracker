@@ -149,7 +149,7 @@ export default function ExpensesPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full min-w-0">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -162,7 +162,7 @@ export default function ExpensesPage() {
                 </SelectContent>
               </Select>
               <Select value={dateFilter} onValueChange={setDateFilter}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full min-w-0">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -194,21 +194,21 @@ export default function ExpensesPage() {
                       >
                         {getCategoryIcon(expense.category)}
                       </div>
-                      <div className="flex-1 min-w-0 overflow-hidden">
-                        <p className="font-medium truncate">{expense.category}</p>
-                        <p className="text-sm text-muted-foreground truncate">
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium">{expense.category}</p>
+                        <p className="text-sm text-muted-foreground">
                           {format(new Date(expense.date), "d MMMM yyyy", { locale: fr })}
                         </p>
                         {expense.note && <p className="text-sm text-muted-foreground truncate">{expense.note}</p>}
                         {expense.isRecurring && (
-                          <span className="inline-block text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full mt-1 truncate">
+                          <span className="inline-block text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full mt-1">
                             Récurrent
                           </span>
                         )}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <p className="font-bold text-lg min-w-[6rem] md:min-w-[8rem] max-w-[11rem] text-right truncate">{formatCurrency(expense.amount, currency)}</p>
+                      <p className="font-bold text-lg whitespace-nowrap">{formatCurrency(expense.amount, currency)}</p>
                       <div className="flex gap-1">
                         <Dialog
                           open={editingExpense?.id === expense.id}
