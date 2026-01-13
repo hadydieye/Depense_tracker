@@ -109,7 +109,7 @@ export default function ExpensesPage() {
   const totalAmount = filteredExpenses.reduce((sum, e) => sum + e.amount, 0)
 
   return (
-    <div className="min-h-screen bg-background pb-20 md:pb-8 md:pl-64">
+    <div className="min-h-screen bg-background pb-20 md:pb-8 md:pl-64 with-nav-padding">
       <div className="container max-w-4xl mx-auto p-4 md:p-8 space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -147,9 +147,9 @@ export default function ExpensesPage() {
                 className="pl-9"
               />
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -162,7 +162,7 @@ export default function ExpensesPage() {
                 </SelectContent>
               </Select>
               <Select value={dateFilter} onValueChange={setDateFilter}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -194,21 +194,21 @@ export default function ExpensesPage() {
                       >
                         {getCategoryIcon(expense.category)}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium">{expense.category}</p>
-                        <p className="text-sm text-muted-foreground">
+                      <div className="flex-1 min-w-0 overflow-hidden">
+                        <p className="font-medium truncate">{expense.category}</p>
+                        <p className="text-sm text-muted-foreground truncate">
                           {format(new Date(expense.date), "d MMMM yyyy", { locale: fr })}
                         </p>
                         {expense.note && <p className="text-sm text-muted-foreground truncate">{expense.note}</p>}
                         {expense.isRecurring && (
-                          <span className="inline-block text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full mt-1">
+                          <span className="inline-block text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full mt-1 truncate">
                             Récurrent
                           </span>
                         )}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <p className="font-bold text-lg whitespace-nowrap">{formatCurrency(expense.amount, currency)}</p>
+                      <p className="font-bold text-lg min-w-[6rem] md:min-w-[8rem] max-w-[11rem] text-right truncate">{formatCurrency(expense.amount, currency)}</p>
                       <div className="flex gap-1">
                         <Dialog
                           open={editingExpense?.id === expense.id}

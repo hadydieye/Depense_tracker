@@ -3,7 +3,7 @@
  * Développé par Artemis99 (Chef de projet) et scriptseinsei
  */
 
-export type Currency = "FG" | "EUR" | "USD"
+export type Currency = "FG" | "EUR" | "USD" | "CFA"
 
 export interface CurrencyInfo {
   code: Currency
@@ -32,6 +32,12 @@ export const CURRENCIES: Record<Currency, CurrencyInfo> = {
     symbol: "$",
     rate: 8500, // 1 USD = 8500 FG (approximatif)
   },
+  CFA: {
+    code: "CFA",
+    name: "Franc CFA",
+    symbol: "CFA",
+    rate: 10, // 1 CFA = 10 FG (approximatif)
+  },
 }
 
 const CURRENCY_KEY = "currency"
@@ -53,6 +59,14 @@ export function setCurrency(currency: Currency): void {
   localStorage.setItem(CURRENCY_KEY, currency)
   // Émettre un événement pour mettre à jour l'interface
   window.dispatchEvent(new CustomEvent("currencyChanged", { detail: currency }))
+}
+
+/**
+ * Indique si l'utilisateur a déjà choisi une devise (utilisé pour l'écran d'installation)
+ */
+export function hasStoredCurrency(): boolean {
+  if (typeof window === "undefined") return false
+  return localStorage.getItem(CURRENCY_KEY) !== null
 }
 
 /**

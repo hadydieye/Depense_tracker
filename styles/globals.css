@@ -122,4 +122,9 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Ensure pages reserve space for the bottom navigation + safe area insets */
+  .with-nav-padding {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
 }

@@ -18,7 +18,7 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border md:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border md:hidden" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
       <div className="flex justify-around items-center h-16">
         {navItems.map(({ href, label, icon: Icon }) => {
           const isActive = pathname === href

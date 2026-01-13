@@ -7,6 +7,7 @@
 
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation, DesktopSidebar } from "@/components/navigation"
+import InitialSetup from "@/components/initial-setup"
 // Install prompt removed
 import { Toaster } from "sonner"
 import { Analytics } from "@vercel/analytics/next"
@@ -24,8 +25,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <DesktopSidebar />
-      {children}
+      <DesktopSidebar />      <InitialSetup />      {children}
       <Navigation />
       {/* Install-related components removed: install prompt and background worker */}
       <NotificationManager />

@@ -87,7 +87,7 @@ export function ExpenseForm({ expense, onSubmit, onCancel }: ExpenseFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="amount">Montant ({currency === "FG" ? "FG" : currency === "EUR" ? "€" : "$"})</Label>
+        <Label htmlFor="amount">Montant ({currency === "FG" ? "FG" : currency === "EUR" ? "€" : currency === "CFA" ? "CFA" : "$"})</Label>
         <Input
           id="amount"
           type="text"

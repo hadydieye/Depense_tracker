@@ -93,7 +93,7 @@ export default function BudgetsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background pb-20 md:pb-8 md:pl-64">
+    <div className="min-h-screen bg-background pb-20 md:pb-8 md:pl-64 with-nav-padding">
       <div className="container max-w-4xl mx-auto p-4 md:p-8 space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -137,7 +137,7 @@ export default function BudgetsPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="budget-amount">Montant ({currency === "FG" ? "FG" : currency === "EUR" ? "€" : "$"})</Label>
+                  <Label htmlFor="budget-amount">Montant ({currency === "FG" ? "FG" : currency === "EUR" ? "€" : currency === "CFA" ? "CFA" : "$"})</Label>
                   <Input
                     id="budget-amount"
                     type="text"
@@ -226,7 +226,7 @@ export default function BudgetsPage() {
                   <CardContent className="space-y-3">
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Dépensé</span>
-                      <span className="font-semibold">
+                      <span className="font-semibold min-w-[8rem] max-w-[12rem] text-right truncate">
                         {formatCurrency(progress.spent, currency)} / {formatCurrency(budget.amount, currency)}
                       </span>
                     </div>

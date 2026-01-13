@@ -50,7 +50,7 @@ export default function AnalyticsPage() {
   const maxCategoryTrendValue = Math.max(...categoryTrendData.map((t) => t.total), 1)
 
   return (
-    <div className="min-h-screen bg-background pb-20 md:pb-8 md:pl-64">
+    <div className="min-h-screen bg-background pb-20 md:pb-8 md:pl-64 with-nav-padding">
       <div className="container max-w-6xl mx-auto p-4 md:p-8 space-y-6">
         {/* Header */}
         <div>

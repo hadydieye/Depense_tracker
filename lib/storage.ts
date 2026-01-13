@@ -4,6 +4,7 @@
  */
 
 import { type Expense, type Budget, type Category, DEFAULT_CATEGORIES } from "./types"
+import { v4 as uuidv4 } from 'uuid';
 
 const EXPENSES_KEY = "expenses"
 const BUDGETS_KEY = "budgets"
@@ -20,7 +21,7 @@ export function saveExpense(expense: Omit<Expense, "id" | "createdAt" | "updated
   const expenses = getExpenses()
   const newExpense: Expense = {
     ...expense,
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   }
@@ -78,7 +79,7 @@ export function saveBudget(budget: Omit<Budget, "id" | "createdAt" | "updatedAt"
 
   const newBudget: Budget = {
     ...budget,
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   }
