@@ -11,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { exportToCSV, getCategories, saveCategory, deleteCategory, resetCategories } from "@/lib/storage"
 import openPrintableExport from "@/lib/export-pdf"
 import downloadPDF from "@/lib/export-pdf-download"
-import { Download, Plus, Trash2, RefreshCw, Info, DollarSign } from "lucide-react"
+import { Download, Plus, Trash2, RefreshCw, Info, DollarSign, Heart, Copy, Check } from "lucide-react"
 import { useEffect } from "react"
 import type { Category } from "@/lib/types"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -23,6 +23,7 @@ export default function SettingsPage() {
   const [categories, setCategories] = useState<Category[]>([])
   const [isAddCategoryOpen, setIsAddCategoryOpen] = useState(false)
   const [newCategory, setNewCategory] = useState({ name: "", icon: "", color: "#6b7280" })
+  const [copied, setCopied] = useState(false)
   const { currency, changeCurrency } = useCurrency()
 
   useEffect(() => {
@@ -83,12 +84,18 @@ export default function SettingsPage() {
   const handleClearAllData = () => {
     if (
       confirm(
-        "⚠️ ATTENTION: Cela supprimera TOUTES vos données (dépenses, budgets, catégories personnalisées). Cette action est irréversible. Continuer ?",
+        "⚠️ ATTENTION: Cela supprimera TOUTES vos données (dépenses, budgets, catégories personnalisées). Cette action est irrévocable. Continuer ?",
       )
     ) {
       localStorage.clear()
       window.location.reload()
     }
+  }
+
+  const handleCopyNumber = () => {
+    navigator.clipboard.writeText("+224626615646")
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
@@ -279,6 +286,50 @@ export default function SettingsPage() {
           </CardContent>
         </Card>
 
+        {/* Soutien */}
+        <Card className="border-blue-200 dark:border-blue-900 bg-gradient-to-br from-blue-50 to-transparent dark:from-blue-950 dark:to-transparent">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-blue-600 dark:text-blue-400">
+              <Heart className="h-5 w-5" />
+              Soutenez-moi
+            </CardTitle>
+            <CardDescription>Aidez-moi à continuer le développement de cette application</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm">
+              Si vous trouvez cette application utile et que vous souhaitez soutenir son développement, vous pouvez me faire un don via Orange Money. Votre soutien m'aide à maintenir l'application et à développer de nouvelles fonctionnalités.
+            </p>
+            <div className="flex gap-2 p-3 rounded-lg bg-white dark:bg-slate-800 border">
+              <Input
+                value="+224626615646"
+                readOnly
+                className="flex-1 bg-white dark:bg-slate-800 border-0 font-semibold"
+              />
+              <Button
+                onClick={handleCopyNumber}
+                variant="outline"
+                size="sm"
+                className="gap-2"
+              >
+                {copied ? (
+                  <>
+                    <Check className="h-4 w-4" />
+                    Copié!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-4 w-4" />
+                    Copier
+                  </>
+                )}
+              </Button>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Merci pour votre générosité! 🙏
+            </p>
+          </CardContent>
+        </Card>
+
         {/* About */}
         <Card>
           <CardHeader>
@@ -292,10 +343,10 @@ export default function SettingsPage() {
               personnelles.
             </p>
             <p>
-              <strong>Chef de projet :</strong> <a href="https://github.com/dashboard"><strong>Artemis99</strong></a>
+              <strong>Chef de projet et co-developpeur :</strong> <a href="https://github.com/BoubacarSow99"><strong>Artemis99</strong></a>
             </p>
             <p>
-              <strong>Développement :</strong> <a href="https://github.com/hadydieye"><strong> Scriptseinsei</strong></a>
+              <strong> Développeur :</strong> <a href="https://github.com/hadydieye"><strong> Scriptseinsei</strong></a>
             </p>
             <p>
               💾 Vos données sont stockées localement dans votre navigateur et ne sont jamais envoyées à un serveur.
@@ -307,7 +358,7 @@ export default function SettingsPage() {
         <Card className="border-destructive">
           <CardHeader>
             <CardTitle className="text-destructive">Zone dangereuse</CardTitle>
-            <CardDescription>Actions irréversibles</CardDescription>
+            <CardDescription>Actions irrévocables</CardDescription>
           </CardHeader>
           <CardContent>
             <Button onClick={handleClearAllData} variant="destructive" className="gap-2">

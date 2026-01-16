@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Gestionnaire de Dépenses",
   description: "Application de gestion de dépenses personnelles avec budgets et analyses",
   generator: "Artemis99 (Chef de projet) & scriptseinsei",
-  authors: [{ name: "Artemis99", role: "Chef de projet" }, { name: "scriptseinsei" }],
+  authors: [{ name: "Artemis99", role: "Chef de projet" }, { name: "scriptseinsei", }],
   icons: {
     icon: "/favicon.jpg",
     apple: "/favicon.jpg",
